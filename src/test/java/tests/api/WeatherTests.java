@@ -2,6 +2,7 @@ package tests.api;
 
 import api.model.CityData;
 
+import api.model.Coord;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import settings.TestBase;
@@ -18,10 +19,9 @@ public class WeatherTests extends TestBase {
 
         CityData cityData = weather.getWeatherInCity("Prague");
 
-        System.out.println(cityData.getCountry() + "\n" + cityData.getName() + "\n" + cityData.getLatitude() + "\n" + cityData.getLongitude() + "\n" + cityData.getCityId());
-        assertThat(cityData.getCountry(), is("CZ"));
+        assertThat(cityData.getSys().getCountry(), is("CZ"));
         assertThat(cityData.getName(), is("Prague"));
-        assertThat(cityData.getLatitude(), is(50.088));
-        assertThat(cityData.getLongitude(), is(14.4208));
+        assertThat(cityData.getCoord().getLat(), is(50.088));
+        assertThat(cityData.getCoord().getLon(), is(14.4208));
     }
 }

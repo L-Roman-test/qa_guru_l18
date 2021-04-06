@@ -1,45 +1,33 @@
 package api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CityData {
-
-    @JsonProperty("lon")
-    private Double longitude;
-    @JsonProperty("coord.lat")
-    private Double latitude;
     @JsonProperty("id")
     private Integer cityId;
     @JsonProperty("name")
     private String name;
-    @JsonProperty("sys.country")
-    private String country;
+    @JsonProperty("sys")
+    private Sys sys;
+    @JsonProperty("coord")
+    private Coord coord;
 
-    public Double getLatitude() {
-        return latitude;
+    public Coord getCoord() {
+        return coord;
     }
 
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
+    public void setCoord(Coord coord) {
+        this.coord = coord;
     }
 
-    public Double getLongitude() {
-        return longitude;
+    public Sys getSys() {
+        return sys;
     }
 
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
+    public void setSys(Sys sys) {
+        this.sys = sys;
     }
 
     public String getName() {
