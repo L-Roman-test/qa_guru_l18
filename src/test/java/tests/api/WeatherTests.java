@@ -2,21 +2,19 @@ package tests.api;
 
 import api.model.CityData;
 
-import api.model.Coord;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import settings.TestBase;
+import settings.APITestBase;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 
-public class WeatherTests extends TestBase {
+public class WeatherTests extends APITestBase {
 
-    @Tag("API")
     @Test
+    @Tag("API")
     public void verifyWeatherInCity() {
-
         CityData cityData = weather.getWeatherInCity("Prague");
 
         assertThat(cityData.getSys().getCountry(), is("CZ"));
