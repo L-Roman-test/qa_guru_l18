@@ -2,6 +2,7 @@ package api.steps;
 
 import api.model.CityData;
 import config.APIConfig;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
 import org.aeonbits.owner.ConfigFactory;
 
@@ -14,6 +15,7 @@ public class WeatherSteps {
         return
                 given()
                         .baseUri("https://api.openweathermap.org")
+                        .filter(new AllureRestAssured().setRequestTemplate("request.ftl").setResponseTemplate("response.ftl"))
                         .log().uri()
                         .contentType(ContentType.URLENC)
                         .formParam("q", city)
