@@ -1,11 +1,14 @@
 package api.steps;
 
 import api.model.CityData;
+import config.APIConfig;
 import io.restassured.http.ContentType;
+import org.aeonbits.owner.ConfigFactory;
 
 import static io.restassured.RestAssured.given;
 
 public class WeatherSteps {
+    static final APIConfig config = ConfigFactory.create(APIConfig.class, System.getProperties());
 
     public CityData getWeatherInCity(String city) {
         return
@@ -14,7 +17,7 @@ public class WeatherSteps {
                         .log().uri()
                         .contentType(ContentType.URLENC)
                         .formParam("q", city)
-                        .formParam("appid", "502d31da29891f4a00eac2f46ff2e93b")
+                        .formParam("appid", config.accessToken())
                         .when()
                         .get("/data/2.5/weather")
                         .then()
