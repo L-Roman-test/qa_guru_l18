@@ -1,5 +1,6 @@
 package tests.api;
 
+import allure.JiraIssue;
 import api.model.CityData;
 
 import org.junit.jupiter.api.Tag;
@@ -14,6 +15,7 @@ public class WeatherTests extends APITestBase {
 
     @Test
     @Tag("API")
+    @JiraIssue("QC3-23")
     public void verifyWeatherInCity() {
         CityData cityData = weather.getWeatherInCity("Prague");
 

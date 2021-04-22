@@ -1,5 +1,6 @@
 package tests.ui;
 
+import allure.JiraIssue;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -15,6 +16,7 @@ public class MainPageTests extends IUTestBase {
 
     @Test
     @Tag("UI")
+    @JiraIssue("QC3-23")
     @Story("Search city on the main page ")
     @DisplayName("found city should have weather information")
     public void searchCityTest() {
